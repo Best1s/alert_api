@@ -79,23 +79,23 @@ def alert_data(alert_group="test_group"):
                        }
 
         try:
-            if data.get('alarmStatus') == 1 :
-                alert_msg = "云监控告警已经触发。\n告警内容：" + alarm_info.get('policyTypeCName') \
-                        + "|" + alarm_conditions_info.get('metricShowName') \
+            if data.get('alarmStatus') == "1" :
+                alert_msg = "云监控告警已经触发。\n告警内容：" + alarm_info.get('policyTypeCName',"") \
+                        + "|" + alarm_conditions_info.get('metricShowName',"") \
                         + alarm_conditions_info.get('calcType',"") + alarm_conditions_info.get('calcValue',"") \
-                        + "\n告警对象: " + data.get('alarmObjInfo').get('dimensions').get('objName',"")  \
+                        + "\n告警对象: " + data.get('alarmObjInfo',"").get('dimensions',"").get('objName',"")  \
                         + "\n当前数据：" + alarm_conditions_info.get('currentValue',"") + alarm_conditions_info.get('unit',"") \
-                        + "\n触发时间: " + data.get('firstOccurTime')
+                        + "\n触发时间: " + data.get('firstOccurTime',"")
 
-            elif data.get('alarmStatus') == 0 :
+            elif data.get('alarmStatus') == "0" :
                 alert_msg = "云监控告警已经恢复。\n" + "告警内容：" + alarm_info.get('policyTypeCName') \
                         + "|" + alarm_conditions_info.get('metricShowName') \
                         + alarm_conditions_info.get('calcType',"") + alarm_conditions_info.get('calcValue',"") \
                         + "\n告警对象: " + data.get('alarmObjInfo').get('dimensions').get('objName',"")  \
                         + "\n当前数据：" + alarm_conditions_info.get('currentValue',"") + alarm_conditions_info.get('unit',"") \
-                        + "\n触发时间: " + data.get('firstOccurTime') \
-                        + "\n恢复时间: " + data.get('recoverTime') \
-                        + "\n持续时间: " + data.get('durationTime')
+                        + "\n触发时间: " + data.get('firstOccurTime',"") \
+                        + "\n恢复时间: " + data.get('recoverTime',"") \
+                        + "\n持续时间: " + data.get('durationTime',"")
             else :
                 alert_msg = "ERROR: alarmStatus is other! "
 
