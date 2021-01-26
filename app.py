@@ -6,7 +6,6 @@ from flask import url_for
 import requests,json,datetime
 import os
 import logging
-from werkzeug.routing import BaseConverter
 
 #cloud tencent alert document：https://cloud.tencent.com/document/product/248/9066
 
