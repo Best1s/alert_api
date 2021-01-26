@@ -1,5 +1,7 @@
 FROM python
 MAINTAINER zhangbin
+RUN /bin/cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+RUN echo "Asia/Shanghai" > /etc/timezone
 COPY ["app.py","/"]
 COPY ["code","/"]
 ADD ["templates/","/templates"]
