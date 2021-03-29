@@ -1,4 +1,14 @@
-需要 python flask
-docker 环境可直接运行start.sh 脚本即可部署项目
-访问端口 5000
-把需要回调码添加到 code 文件里， 例如 echo "xxxxx" > code
+
+
+部署环境：  需要 docker 运行环境。
+
+执行：  start.sh 脚本即可部署   
+
+腾讯云，云监控回调接口填写： 
+
+x.x.x.x/send/xxxxx  #xx告警组
+
+*如需要接口回调验证执行  echo "回调码" > code  再执行 start.sh
+
+日志查看  docker logs $(docker ps  |grep "alert_callback_api:latest" |cut -c 1-5)
+重启 docker restart $(docker ps  |grep "alert_callback_api:latest" |cut -c 1-5)

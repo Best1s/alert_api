@@ -1,6 +1,7 @@
 #!/bin/bash
-docker stop alert_api
-docker rm alert_api
-docker rmi alert_api
-docker build -t alert_api:latest .
-docker run -d -p 5000:5000 --name alert_api alert_api:latest
+project="alert_callback_api"
+docker stop ${project} ||echo "not run ${project}"
+docker rm ${project} || echo "not ${project} container"
+docker rmi ${project} || echo "not ${project} images"
+docker build -t ${project}:latest .
+docker run -d -p 5000:5000 --name ${project} ${project}:latest
