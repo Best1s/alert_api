@@ -8,5 +8,5 @@ COPY ["myjsonpath.py","/"]
 COPY ["natapi.py","/"]
 WORKDIR /
 RUN  pip install flask  tencentcloud-sdk-python requests -i https://pypi.douban.com/simple
-EXPOSE 15000
+EXPOSE 5000
 CMD python app.py
